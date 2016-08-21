@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="img/favicon.ico" />
+
+    <!-- CSS Libs -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css" />
+
+</head>
+<body class="well">
+
+    <div class="row">
+        <button id="listBtn" class="btn btn-info col-xs-6 col-sm-2 col-sm-offset-1">LIST</button>
+        <button id="createBtn" class="btn btn-success col-xs-6 col-sm-2">CREATE</button>
+        <button id="readBtn" class="btn btn-primary col-xs-6 col-sm-2">READ</button>
+        <button id="updateBtn" class="btn btn-warning col-xs-6 col-sm-2">UPDATE</button>
+        <button id="deleteBtn" class="btn btn-danger col-xs-12 col-sm-2">DELETE</button>
+    </div>
+
+    <!-- Alert block -->
+    <div class="alert-wrapper col-xs-12 col-sm-6 col-sm-offset-3 text-center">
+        <div id="alert_block" class="alert alert-success hidden">
+          <strong id="alert_type">Success!</strong>
+          <span id="alert_text">Indicates a successful or positive action.</span>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <!-- Customer list view -->
+    <div class="view hidden table-responsive" id="customer_list">
+
+        <table class="table table-hover table-bordered">
+            <caption>
+                <h1 class="text-info text-center">Сustomers</h1>
+            </caption>
+            <thead>
+                <tr class="info">
+                    <th><input id="overall_checkbox" type="checkbox"></th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Telephone</th>
+                    <th>Address</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+    </div>
+
+    <!-- Customer info view -->
+    <div class="view hidden col-xs-12 col-sm-8 col-sm-offset-2" id="customer_info">
+        <h1 class="h1 text-info text-center">John Johnson</h1>
+        <div class="panel panel-info">
+            <div class="panel-heading">ID: 23232212312</div>
+            <div class="panel-body">
+                <p>Email: jonny@example.com</p>
+                <p>Telephone: +380990440983</p>
+                <p>Address: Ukraine, Kyiv, Khreschatik st., 44</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Customer form view -->
+    <div class="view hidden" id="customer_form">
+
+        <form class="form-group">
+            <h1 id="formTitle" class="h1 text-info text-center">New Customer</h1>
+            <div class="row">
+                <div class="form-group col-sm-6">
+                    <label for="firstName" class="control-label hidden-xs">First Name</label>
+                    <input type="text" name="firstName" id="firstName" class="form-control" value="" required placeholder="First Name">
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="lastName" class="control-label hidden-xs">Last Name</label>
+                    <input type="text" name="lastName" id="lastName" class="form-control" placeholder="Last Name">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-sm-6">
+                    <label for="email" class="control-label hidden-xs">Email</label>
+                    <input type="email" name="email" id="email" class="form-control" placeholder="Email">
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="telephone" class="control-label hidden-xs">Telephone</label>
+                    <input type="text" name="telephone" id="telephone" class="form-control" placeholder="Telephone">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-sm-12">
+                    <label for="street" class="control-label hidden-xs">Street</label>
+                    <input type="text" name="street" id="street" class="form-control" placeholder="Street">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-sm-4">
+                    <label for="city" class="control-label hidden-xs">City</label>
+                    <input type="text" name="city" id="city" class="form-control" placeholder="City">
+                </div>
+                <div class="form-group col-sm-4">
+                    <label for="state" class="control-label hidden-xs">State</label>
+                    <input type="text" name="state" id="state" class="form-control" placeholder="State">
+                </div>
+                <div class="form-group col-sm-4">
+                    <label for="zip" class="control-label hidden-xs">ZIP</label>
+                    <input type="text" name="zip" id="zip" class="form-control" placeholder="ZIP">
+                </div>
+            </div>
+            <button id="submit" type="submit" class="btn btn-info col-xs-12 col-sm-8 col-sm-offset-2">SUBMIT</button>
+        </form>
+
+    </div>
+
+    <!-- Utils -->
+    <script src="js/utils/readData.js"></script>
+    <script src="js/utils/writeData.js"></script>
+    <script src="js/utils/deleteData.js"></script>
+    <script src="js/utils/putData.js"></script>
+    <script src="js/utils/readAllDataInStore.js"></script>
+    <script src="js/utils/parseOb.js"></script>
+
+    <!-- App -->
+    <script src="js/switchView.js"></script>
+    <script src="js/updateCustomerInfoPanel.js"></script>
+    <script src="js/clearCustomerForm.js"></script>
+    <script src="js/fillCustomerForm.js"></script>
+    <script src="js/updateCustomerTable.js"></script>
+    <script src="js/addCustomerToCustomerTable.js"></script>
+    <script src="js/removeCustomerFromCustomerTable.js"></script>
+    <script src="js/displayAlertBlock.js"></script>
+    <script src="js/hideAlertBlock.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+</html>
